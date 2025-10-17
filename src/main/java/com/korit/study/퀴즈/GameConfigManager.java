@@ -3,7 +3,7 @@ package com.korit.study.퀴즈;
 import java.util.Objects;
 
 public class GameConfigManager {
-    public static GameConfigManager instance = new GameConfigManager(0, "");
+    public static GameConfigManager instance = new GameConfigManager();
     // TODO: 싱글톤 구현을 위한 필드들
 
     // 설정 정보 필드들
@@ -12,9 +12,7 @@ public class GameConfigManager {
 
     // TODO: 생  성자 구현
 
-    public GameConfigManager(int soundVolume, String resolution) {
-        this.soundVolume = soundVolume;
-        this.resolution = resolution;
+    private GameConfigManager() {
     }
 
     // TODO: 싱글톤 인스턴스 반환 메서드 구현
@@ -22,7 +20,7 @@ public class GameConfigManager {
 
     public static GameConfigManager getInstance() {
         if (Objects.isNull(instance)) {
-            GameConfigManager instance = new GameConfigManager(0, "");
+            GameConfigManager instance = new GameConfigManager();
         }
         return instance;
     }
