@@ -3,7 +3,7 @@
 //import java.util.Scanner;
 //
 //public class Gugudan {
-//    pub lic static void main(String[] args) {
+//    public static void main(String[] args) {
 //        Scanner scanner = new Scanner(System.in);
 //        int startDan = scanner.nextInt();
 //        int endDan = scanner.nextInt();
