@@ -1,5 +1,7 @@
 package com.korit.study.연습장;
 
+import java.util.Arrays;
+
 public class 개인연습 {
     public static void main(String[] args) {
 //        int[] nums =new int[] {10, 20, 30, 40, 50};
@@ -44,6 +46,9 @@ public class 개인연습 {
             }
 
         }
+        }
+
+
 
 
 
