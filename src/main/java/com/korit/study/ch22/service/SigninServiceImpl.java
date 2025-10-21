@@ -1,26 +1,28 @@
 package com.korit.study.ch22.service;
 
 import com.korit.study.ch22.dto.SigninDto;
+import com.korit.study.ch22.dto.SignupDto;
 import com.korit.study.ch22.entity.User;
 import com.korit.study.ch22.repository.UserRepository;
 import com.korit.study.ch22.util.PasswordEncoder;
 
 import java.util.Objects;
 
-public class SigninServiceImpl implements SigninService {
-    // 싱글톤으로 만들것
-    private static SigninServiceImpl instance;
-    private UserRepository userRepository;
-    private SigninServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    public class SigninServiceImpl implements SigninService {
+        // 싱글톤으로 만들것
+        private static SigninServiceImpl instance;
+        private UserRepository userRepository;
 
-    public static SigninServiceImpl getInstance() {
-        if (Objects.isNull(instance)) {
-            instance = new SigninServiceImpl(UserRepository.getInstance());
+        private SigninServiceImpl(UserRepository userRepository) {
+                this.userRepository = userRepository;
         }
-        return instance;
-    }
+
+        public static SigninServiceImpl getInstance() {
+            if (Objects.isNull(instance)) {
+                instance = new SigninServiceImpl(UserRepository.getInstance());
+            }
+            return instance;
+        }
 
     @Override
     public void signin(SigninDto signinDto) { //지니가 signupDto를 입력하지 못한이유<<객체타입
@@ -39,7 +41,7 @@ public class SigninServiceImpl implements SigninService {
             return;
         }
 
-        if (!PasswordEncoder.match(signinDto.getPassword(), foundUser.getPassword())) {
+        if (!PasswordEncoder.match(signinDto.getPassword(),foundUser.getPassword())) {
             System.out.println("사용자 정보를 다시 확인하세요.");
             return;
         }
